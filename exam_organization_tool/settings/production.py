@@ -1,13 +1,16 @@
 from .base import *
 from decouple import config
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+DEBUG = False
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('POSTGRES_DB_NAME'),
-        'USER': config('POSTGRES_DB_NAME'),
-        'PASSWORD': config('POSTGRES_DB_PASSWORD'),
+        'USER': config('POSTGRES_DB_USER'),
+        'PASSWORD': config('POSTGRES_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }
