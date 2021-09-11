@@ -1,0 +1,79 @@
+\newcounter{lsg}
+\newcounter{script}
+\setcounter{script}{0}
+\setcounter{lsg}{0} %1 = Lösung zeigen, 0 = Lösung verbergen
+
+\newcounter{leerzeilen}
+\setcounter{leerzeilen}{0}
+
+%\newcounter{zeilen}
+
+\newcommand{\Loes}[1]{
+\ifnum\value{lsg}=0
+  {\color{white}{#1}}
+\else
+  #1
+\fi
+}
+
+\newcommand{\SaLoes}[1]{
+\ifnum\value{lsg}=0
+{}
+\else
+\begin{loesung}
+  #1
+\end{loesung}
+\fi
+}
+
+\newcommand{\TikzLoes}[1]{
+\ifnum\value{lsg}=0
+ %#1
+\else
+ #1
+\fi
+}
+
+\newcommand{\MathLoes}[3]{
+\ifnum\value{lsg}=0
+ \karo{#1}{#2} 
+
+\else
+\begin{loesung}
+ #3
+\end{loesung}
+\fi
+}
+
+\newcommand{\TLoes}[2]{
+\ifnum\value{lsg}=1
+  \uline{#2}
+\else
+\whiledo {\value{leerzeilen}<#1}
+{
+\uline{\hfill}
+
+\vspace{2mm}
+\addtocounter{leerzeilen}{1}
+}
+\uline{\hfill}
+\setcounter{leerzeilen}{0}
+\fi
+}
+
+%Das gleiche mit anderem Befehl
+\newcommand{\Luecke}[1]{
+\ifnum\value{lsg}=1
+  \uline{#1}
+\else
+    \uline{\hspace{1.5cm} {\color{white}#1} \hspace{1.5cm}}
+\fi
+}
+
+\newcommand{\MLuecke}[1]{
+\ifnum\value{lsg}=1
+  \uline{#1}
+\else
+    \uline{\hspace{.5cm} {\color{white}#1} \hspace{.5cm}}
+\fi
+}

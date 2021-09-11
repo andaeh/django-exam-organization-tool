@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data" class="mb-3">
+    {{ form.media }}
+    {% csrf_token %}
+    <div class="form-group col-12">
+        <label class="form-label" for="{{ form.headline.id_for_label }}">{{ form.headline.label }}</label>
+        {{ form.headline }}
+    </div>
+    <div class="form-group col-12">
+        <label class="form-label" for="{{ form.description.id_for_label }}">{{ form.description.label }}</label>
+        {{ form.description }}
+    </div>
+    <div class="form-group col-12">
+        <label class="form-label" for="{{ form.topic.id_for_label }}">{{ form.topic.label }}</label>
+        ({{ form.topic.help_text }})
+        {{ form.topic }}
+    </div>
+    <div class="form-group col-12">
+        <label class="form-label" for="{{ form.total_BE.id_for_label }}">{{ form.total_BE.label }}</label>
+        {{ form.total_BE }}
+    </div>
+    </div>
+    <div class="form-group pl-3 pr-4">
+        <label class="form-label" for="{{ form.task_text.id_for_label }}">{{ form.task_text.label }}</label>
+        <div class="row ">
+            <div class="col-6">
+                {{ form.task_text }}
+            </div>
+            <iFrame class="col-6" id="iframe" width="100%" src="/media/pdf/{{task.pk}}#view=FitH"></iFrame>
+        </div>
+    </div>
+    <div class="col-12 custom-file">
+        <label for="{{ form.images.id_for_label }}" class="form-label">{{ form.images.label }}</label>
+        ({{ form.images.help_text }})
+        {{ form.images }}
+    </div>
+
+    <div class="form-group col-12 mt-3">
+        <label class="form-label" for="{{ form.tags.id_for_label }}">{{ form.tags.label }}</label>
+        <input type="text" name="tags" data-role="tagsinput" class="form-control" id="tags" name="tags"
+            value="{% for tag in task.tags.all %}{{ tag }},{% endfor %}">
+    </div>
+
+    <button type="submit" class="btn btn-primary mb-3">Speichern</button>
+    <a class="btn btn-danger mb-3" href="{% url 'exam_organization:task_delete' task.pk %}">Löschen</a>
+</form>
+
+{% endblock content %}

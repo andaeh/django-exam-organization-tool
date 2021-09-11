@@ -1,0 +1,80 @@
+{% load model_filters %}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+	<a class="navbar-brand" href="{% url 'exam_organization:task_overview' %}"></a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			{% if user.is_authenticated %}
+			<li class="nav-item active dropdown btn-group">
+				<a class="btn" href="{% url 'exam_organization:task_overview' %}">Aufgaben</a>
+				<button class="btn dropdown-toggle dropdown-toggle-split" type="button" id="dropdownMenu2"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+				</button>
+				<div class="dropdown-menu">
+					<a class="nav-link" href="{% url 'exam_organization:task_overview' %}">
+						Alle
+					</a>
+
+					<a class="nav-link" href="{% url 'exam_organization:own_task_overview' %}">
+						Von mir erstellt
+					</a>
+
+				</div>
+			</li>
+
+			<li class="nav-item active">
+				<a class="nav-link" href="{% url 'exam_organization:task_create' %}">Neue Aufgabe
+				</a>
+			</li>
+			{% else %}
+			<li class="nav-item active">
+				<a class="nav-link" href="{% url 'exam_organization:task_overview' %}">Aufgaben
+				</a>
+			</li>
+			{% endif %}
+		</ul>
+		<div>
+			{% if user.is_authenticated %}
+			{% if user.is_superuser %}
+			<a class="btn text-muted" href="{% url 'admin:index' %}">Admin</a>
+			{% endif %}
+			<a class="btn text-muted" href="{% url 'logout' %}?next={{ request.path }}">Logout</a>
+			{% else %}
+			<!-- <a class="btn text-muted" href="{% url 'login' %}?next={{ request.path }}">Login</a> -->
+			<div class="btn-group">
+				<a class="btn" href="{% url 'login' %}">Login</a>
+				<button onclick="focusMethod()" id="dropdown-button" type="button"
+					class="btn text-muted dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+				</button>
+				<form method="POST" class="dropdown-menu dropdown-menu-right p-3" action="{% url 'login' %}">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="usernameField" class="form-label">Benutzername</label>
+						<input id="usernameField" type="text" class="form-control" style="min-width: 20em"
+							name="username" placeholder="Nutzer*innenname">
+					</div>
+					<div class="form-group">
+						<label for="passwordField" class="form-label">Passwort</label>
+						<input id="passwordField" type="password" name="password" class="form-control"
+							placeholder="Passwort">
+					</div>
+					<button class="btn btn-primary" type="submit">Einloggen</button>
+				</form>
+
+			</div>
+			{% endif %}
+		</div>
+	</div>
+	<script>
+		focusMethod = function getFocus() {
+			setTimeout(() =>
+				document.getElementById("usernameField").focus(), 0)
+		}
+	</script>
+</nav>

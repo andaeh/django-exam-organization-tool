@@ -1,0 +1,185 @@
+\newcommand{\I}[1]{\ensuremath{\mathbb {#1}}}
+
+\newcommand{\tunit}[1]{\rm #1}
+\newcommand{\unit}[1]{\, \rm #1}
+\newcommand{\funit}[2]{\ensuremath{\, \frac{\rm #1}{\rm #2}}}
+\newcommand{\tfunit}[2]{\ensuremath{\frac{\rm #1}{\rm #2}}}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\rg}{rang}
+\DeclareMathOperator{\asin}{asin}
+\DeclareMathOperator{\acos}{acos}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\e}{\mathrm{e}}
+\DeclareMathOperator{\TIP}{TIP}
+\DeclareMathOperator{\HOP}{HOP}
+\DeclareMathOperator{\WEP}{WEP}
+\DeclareMathOperator{\TEP}{TEP}
+
+
+\newcommand{\lorentz}{\sqrt{1-\frac{v^2}{c^2}}}
+\newcommand{\dd}{\mathrm d}
+
+\newcommand{\E}[1]{\ensuremath{\cdot10^{#1}}}
+\newcommand{\g}{\ensuremath{9,81 \frac{\unit{m}}{\unit{s}^2}}}
+
+\newcommand{\vektor}[2]{\begin{pmatrix}#1 \\#2\end{pmatrix}}
+
+\newcommand{\ddvektor}[3]{\begin{pmatrix}#1 \\#2 \\ #3\end{pmatrix}}
+
+%Farben
+\definecolor{LightBlue}{HTML}{3333b2}
+\setlength{\fboxrule}{0.3mm}
+
+\newcommand{\titelfolie}
+{
+\begin{frame} 
+ \centering
+  \ifthenelse{\boolean{mylogo}}{
+  \vbox to .75\paperheight {
+  \vspace{2cm}
+  \textbf{\Large \MyTitle}
+  \vfill
+  \includegraphics[width=.8\textwidth]{G:/03_TeX-Vorlagen/Logo_re.png}
+  }
+  }{
+  \textbf{\Large \MyTitle}
+  }
+ \end{frame}
+ 
+   \section{\MyTitle} 
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% SA-Commands %%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\newcommand{\kopfzeile}[2]{
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\hline 
+#1 & \centering \textbf{#2} & \(\,^\text{\tiny{Datum}}\)\;\;\;\;\;\;\;\;\;\;\; \\
+\hline
+\end{tabularx}
+}
+
+\newcommand{\samakopfzeile}[3]{
+\begin{tabularx}{0.8\textwidth}{|l|X|l|}
+\hline 
+#1 & \centering \textbf{#2} & #3 \\
+\hline
+\end{tabularx}
+
+\vspace{3mm}
+\uline{Name: \hspace{7cm}}
+\vspace{3mm}
+ 
+  \vspace{-1mm}
+ \begin{minipage}{0.99\textwidth}
+ \textbf{Hinweise:}
+ \vspace{-2mm}
+ \textit{\begin{itemize}\itemsep0pt
+ 		\item Der Rechenweg ist stets Teil der Lösung und muss nachvollziehbar notiert sein. 
+ 		\item Alle Lösungen sind in möglichst einfacher Form und komplett gekürzt anzugeben. 
+ 		\item Formale Fehler sowie die äußere Form können in die Bewertung mit einfließen.
+ 	\end{itemize}}
+ 
+ \end{minipage}
+ \vspace{3mm}
+}
+
+\newcommand{\saphkopfzeile}[3]{
+\begin{tabularx}{0.80\textwidth}{|l|X|l|}
+\hline 
+#1 & \centering \textbf{#2} & #3 \\
+\hline
+\end{tabularx}
+
+\vspace{3mm}
+\uline{Name: {\color{white}NameNameNameNameNameNameNameName}}
+\vspace{1mm}
+
+ \vspace{2mm}
+ \begin{minipage}{0.99\textwidth}
+\textbf{Hinweise:}
+\vspace{-2mm}
+\begin{itemize}\itemsep0pt
+	\item Achten Sie auf eine konsistente Benennung der physikalischen Größen.
+	\item Geben Sie zuerst den allgemeinen Ansatz an, lösen Sie nachvollziehbar nach der gesuchten Variable auf und setzen Sie anschließend die entsprechenden Größen ein.
+	\item Achten Sie auf die Anzahl gültiger Ziffern.
+	\item Formale Fehler sowie die äußere Form können in die Bewertung mit einfließen.
+\end{itemize}
+\end{minipage}
+}
+
+\newcommand{\saphkopfzeileohi}[3]{
+	\begin{tabularx}{0.80\textwidth}{|l|X|l|}
+		\hline 
+		{#1} & \centering \textbf{#2} & {#3} \\
+		\hline
+	\end{tabularx}
+
+	\vspace{3mm}
+	\uline{Name: {\color{white}NameNameNameNameNameNameNameName}}
+}
+
+\newcommand{\BEWarning}{
+\begin{minipage}{0.75\textwidth}
+  \centering
+  \textbf{-- Alle BE-Angaben erfolgen unter Vorbehalt --}
+ \end{minipage}
+}
+
+\newcommand{\nextpage}{
+\vfill
+\hfill $\longrightarrow$ \textbf{BITTE WENDEN}
+\newpage
+}
+
+\newcounter{summe}
+\setcounter{summe}{0}
+\newcommand{\schlussa}[1]{
+\hfill \textbf{Gesamt}
+ 
+ \hfill \begin{tabular}{|p{1cm}@{/}R{1.5cm}|}
+                                              \hline
+                                              & \textbf{#1 BE} \\ 
+                                              \hline
+                                             \end{tabular}
+ 
+ \vspace{5mm}
+ 
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Andere Kopfzeilen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lzkopfzeile}[1]{
+\begin{tabularx}{\textwidth}{|Y|}
+\hline 
+\textbf{#1} \\
+\hline
+\end{tabularx}
+}
+
+\newcommand{\wokopfzeile}[2]{
+\begin{tabularx}{\textwidth}{|l|X|l|}
+\hline 
+#1 & \centering \textbf{#2} & \(\,^\text{\tiny{Name}}\)\hspace{5cm} \\
+\hline
+\end{tabularx}
+}
+
+\newcommand{\seite}{\vspace*{-15mm}
+ \begin{center}Seite \thepage{} von \pageref{LastPage}\end{center}
+}
+
+\newcommand{\punkt}{\;\;{\color{red}\Large\checkmark}}
+\newcommand{\hpunkt}{\;\;{\color{red}\checkmark\kern-1.1ex\raisebox{.7ex}{\rotatebox[origin=c]{125}{--}}}}
+
+\renewcommand{\arraystretch}{1.4}
+
+\newcommand{\Ekin}{\ensuremath{E_\text{kin}}}
+\newcommand{\Epot}{\ensuremath{E_\text{pot}}}
+\newcommand{\Eges}{\ensuremath{E_\text{ges}}}
+
+\newcommand{\ges}{\ensuremath{_\text{ges}}}
+
+\newcommand{\enumzahlen}{\renewcommand{\labelenumi}{\arabic{task}.\arabic{enumi}}}

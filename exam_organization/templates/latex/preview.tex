@@ -1,0 +1,26 @@
+\documentclass{article}
+
+\usepackage{geometry}
+
+\geometry{margin=0pt}
+
+
+\def\LatexDir{ {{- latex_dir -}} }
+
+\input{\LatexDir/packages.tex}
+\input{\LatexDir/commands.tex}
+\input{\LatexDir/ifelse.tex}
+\input{\LatexDir/theorems.tex}
+\input{\LatexDir/tikz.tex}
+
+{% graphicspath %}
+
+\usepackage[active, tightpage]{preview}
+\setlength\PreviewBorder{5pt}%
+
+
+\begin{document}
+\begin{preview}
+{{- task_text -}}
+\end{preview}
+\end{document}

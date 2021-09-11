@@ -1,0 +1,205 @@
+\newtheoremstyle{nummeriert}% name of the style to be used
+  {5pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {4mm}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\boxed{\text{#1 #2\normalfont{#3}}} \vspace{2mm}}% Manually specify head
+
+\theoremstyle{nummeriert}
+\newtheorem{aufgabe}{Aufgabe}
+
+
+
+\newtheoremstyle{unnummeriert}% name of the style to be used
+  {5pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\boxed{\text{#1\normalfont{#3}}} \vspace{2mm}}% Manually specify head
+
+\theoremstyle{unnummeriert}
+\newtheorem*{naufgabe}{Aufgabe}
+
+
+
+\newtheoremstyle{merke}% name of the style to be used
+  {5pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\fcolorbox{black}{gray!40}{\text{#1}} #3 \vspace{2mm}}% Manually specify head
+
+\theoremstyle{merke}
+\newtheorem*{noboxmerke}{Merke}
+\newtheorem*{satz}{Satz}
+
+\newsavebox{\mybox}
+\newenvironment{merke}
+{\begin{lrbox}{\mybox}\begin{minipage}{\textwidth}\begin{noboxmerke}}
+{\end{noboxmerke}\end{minipage}\end{lrbox}\fbox{\usebox{\mybox}}}
+
+\newmdtheoremenv{defi}{Definition}
+\newmdtheoremenv{antwort}{Antwort}
+
+\newtheoremstyle{blankblack}% name of the style to be used
+  {5pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\fcolorbox{black}{gray!40}{\text{#3}} \vspace{2mm}}% Manually specify head
+
+\theoremstyle{blankblack}
+\newtheorem*{freitextb}{Freitext}
+
+\newtheoremstyle{blankwhite}% name of the style to be used
+  {5pt}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\sffamily}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\fcolorbox{black}{white}{\text{#3}} \vspace{2mm}}% Manually specify head
+
+\theoremstyle{blankwhite}
+\newtheorem*{freitextw}{Freitext}
+
+\newtheoremstyle{t1schultask}% name of the style to be used
+  {5mm}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\boxed{\text{#1 #2}} \, \normalfont{(#3 BE)}\hfill {\normalfont\begin{tabular}{|p{1cm}@{/}R{1.5cm}|}
+                                              \hline
+                                              & #3 BE \\ 
+                                              \hline
+                                             \end{tabular}
+\vspace{2mm}}}% Manually specify head
+
+\newtheoremstyle{t2schultask}% name of the style to be used
+  {5mm}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\boxed{\text{#1 #2}} \, \normalfont{#3}\hfill {\normalfont\begin{tabular}{|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|}
+                                              \hline
+                                              a)&&b)& \\ 
+                                              \hline
+                                             \end{tabular}
+\vspace{2mm}}}% Manually specify head
+
+\newtheoremstyle{t3schultask}% name of the style to be used
+  {5mm}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\boxed{\text{#1 #2}} \, \normalfont{(#3 BE)}\hfill {\normalfont\begin{tabular}{|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|}
+                                              \hline
+                                              &&&&& \\ 
+                                              \hline
+                                             \end{tabular}
+\vspace{2mm}}}% Manually specify head
+
+\newtheoremstyle{t4schultask}% name of the style to be used
+  {5mm}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\boxed{\text{#1 #2}} \, \normalfont{#3}\hfill {\normalfont\begin{tabular}{|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|}
+                                              \hline
+                                              a)&&b)&&c)&&d)& \\ 
+                                              \hline
+                                             \end{tabular}
+\vspace{2mm}}}% Manually specify head
+
+\newtheoremstyle{t5schultask}% name of the style to be used
+  {5mm}% measure of space to leave above the theorem. E.g.: 3pt
+  {0pt}% measure of space to leave below the theorem. E.g.: 3pt
+  {\normalfont}% name of font to use in the body of the theorem
+  {0pt}% measure of space to indent
+  {\bfseries}% name of head font
+  {}% punctuation between head and body
+  {\newline}% space after theorem head; " " = normal interword space
+  {\boxed{\text{#1 #2}} \, \normalfont{#3}\hfill {\normalfont\begin{tabular}{|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|p{1cm}@{/}p{1cm}|}
+                                              \hline
+                                              a)&&b)&&c)&&d)&&e)& \\ 
+                                              \hline
+                                             \end{tabular}
+\vspace{2mm}}}% Manually specify head
+
+\theoremstyle{t1schultask}
+\newtheorem{t1tasks}{Task}
+\newenvironment{t1task}{\begin{t1tasks}}{\stepcounter{task}\stepcounter{t2tasks}\stepcounter{t3tasks}\stepcounter{t4tasks}\stepcounter{t5tasks}\end{t1tasks}}
+
+
+\theoremstyle{t2schultask}
+\newtheorem{t2tasks}{Task}
+\newenvironment{t2task}{\begin{t2tasks}}{\stepcounter{task}\stepcounter{t1tasks}\stepcounter{t3tasks}\stepcounter{t4tasks}\stepcounter{t5tasks}\end{t2tasks}}
+
+\theoremstyle{t3schultask}
+\newtheorem{t3tasks}{Task}
+\newenvironment{t3task}{\begin{t3tasks}}{\stepcounter{task}\stepcounter{t2tasks}\stepcounter{t1tasks}\stepcounter{t4tasks}\stepcounter{t5tasks}\end{t3tasks}}
+
+\theoremstyle{t4schultask}
+\newtheorem{t4tasks}{Task}
+\newenvironment{t4task}{\begin{t4tasks}}{\stepcounter{task}\stepcounter{t2tasks}\stepcounter{t3tasks}\stepcounter{t1tasks}\stepcounter{t5tasks}\end{t4tasks}}
+
+\theoremstyle{t5schultask}
+\newtheorem{t5tasks}{Task}
+\newenvironment{t5task}{\begin{t5tasks}}{\stepcounter{task}\stepcounter{t2tasks}\stepcounter{t3tasks}\stepcounter{t4tasks}\stepcounter{t1tasks}\end{t5tasks}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% mdframed
+
+\usepackage{mdframed}
+
+\newmdenv[
+frametitlealignment=\centering,
+frametitlerule=true,
+frametitlebackgroundcolor=gray!30,
+frametitleaboveskip=5mm,
+frametitlebelowskip=5mm,
+innertopmargin=5mm,
+innerbottommargin=5mm
+]{tabul}
+
+\newcommand{\tabu}[4]{
+\begin{minipage}{0.33\textwidth}
+\centering
+\begin{tabul}[frametitle=#1]
+\centering
+#2
+\vspace{5mm}
+
+#3
+\vspace{5mm}
+
+#4
+\end{tabul}
+\end{minipage}
+}
+
+\newenvironment{folie}{\begin{frame}}{\vspace{20cm}\end{frame}}

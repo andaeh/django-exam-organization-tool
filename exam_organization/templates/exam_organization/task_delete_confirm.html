@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <h3>
+        Wirklich löschen?
+    </h3>
+    <input class="btn btn-danger" type="submit" value="Löschen">
+    <a href="{% url 'exam_organization:task_overview' %}" class="btn btn-primary">Abbrechen</a>
+</form>
+{% endblock content %}

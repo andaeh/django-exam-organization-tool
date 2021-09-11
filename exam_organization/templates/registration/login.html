@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex flex-column">
+    <h1 class="mb-auto p-2">Login</h1>
+    <form method="POST" class="p-2">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" class="btn btn-primary mt-2" value="Einloggen">
+    </form>
+</div>
+{% endblock content %}

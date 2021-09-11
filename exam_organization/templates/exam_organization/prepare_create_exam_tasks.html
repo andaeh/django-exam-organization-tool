@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load model_filters %}
+
+{% block content %}
+<h1>Tasks bearbeiten</h1>
+<form method="post" enctype="multipart/form-data" class="mb-3">
+
+    {% csrf_token %}
+    {% for form in forms %}
+    {{ form.media }}
+    <div class="form-group">
+        {{ forloop.counter }}.{{ form.headline }}
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="{{ form.task_text.id_for_label }}">{{ form.task_text.label }}</label>
+        {{ form.task_text }}
+    </div>
+    {% endfor %}
+    <input name="submit" class="my-3 btn btn-success" type="submit" value="Exam erstellen">
+</form>
+{% endblock content %}

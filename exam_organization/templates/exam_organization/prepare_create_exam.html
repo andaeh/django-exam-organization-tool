@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load model_filters %}
+
+{% block content %}
+<h1>Exam</h1>
+
+<form method="POST" class="mb-3">
+    {% csrf_token %}
+    {{ form }}
+    <input type="hidden" name="tasks_ids" value="{{tasks_ids}}">
+    <label class="form-label">Tasksreihenfolge:</label>
+
+    {% for i in tasks_ids %}
+    <div class="form-group row mt-auto pr-5">
+        <label class="text-center col-1 p-2" for="tasks_reihenfolge_{{ forloop.counter }}">
+            {{ forloop.counter }}</label>
+        <select class="col-11 form-control" name="tasks_reihenfolge" id="tasks_reihenfolge_{{ forloop.counter }}">
+            <option value="">--- Task auswählen ---</option>
+            {% for id in tasks_ids %}
+            <option value="{{ id }}">{{ id|get_headline_from_id }}</option>
+            {% endfor %}
+            {% if not forloop.last %}
+            <input class="form-checkbox col-1 my-auto" type="checkbox" name="newpage_after_{{ forloop.counter }}" />
+            <label class="mt-2" for="newpage_after_{{ forloop.counter }}">Seitenumbruch einfügen</label>
+            {% endif %}
+        </select>
+    </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-primary my-3" value="Erstellen">
+</form>
+
+{% endblock content %}
