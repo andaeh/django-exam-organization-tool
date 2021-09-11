@@ -25,12 +25,12 @@ After installing all dependencies run `python manage.py runserver` to run the ap
 In this mode the app uses an sqlite3-database.
 
 ## Production server
-
-To run the app in production it uses [PostgreSQL](https://www.postgresql.org/). Create a database and add the credentials to your `.env` file. Use the following variable names:
+ 
+ The app uses [PostgreSQL](https://www.postgresql.org/) in production. Create a database and add the credentials to your `.env` file. Use the following variable names:
 
 POSTGRES_DB_NAME, POSTGRES_DB_USER, POSTGRES_DB_PASSWORD
 
-Afterwards type `python manage.py runserver --settings=exam_organization_tool.settings.production` to run server locally. For deployment use other environments like docker, heroku or gunicorn.
+Afterwards type `python manage.py runserver --settings=exam_organization_tool.settings.production` to run the production server locally. For deployment use other environments like docker, heroku or gunicorn.
 
 ## Improvements
 
