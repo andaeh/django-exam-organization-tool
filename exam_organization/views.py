@@ -172,6 +172,7 @@ def create_pdf_preview(request, pk):
     template_name = 'latex/preview.tex'
     task = get_object_or_404(Task, id=pk)
     context = {
+        'latex_dir': os.path.join(settings.BASE_DIR, 'exam_organization', 'templates', 'latex'),
         'task_text': task.task_text,
         'latex_dir': os.path.join(settings.BASE_DIR, 'exam_organization', 'templates', 'latex')
     }
@@ -181,7 +182,6 @@ def create_pdf_preview(request, pk):
         return FileResponse(file, as_attachment=False, filename=pk+".pdf")
     except:
         pdf = compile_template_to_pdf(template_name, context)
-        print(template_name)
         with open(os.path.join(settings.MEDIA_ROOT,
                                'pdf', str(task.id) + '.pdf'), 'wb+') as file:
             file.write(pdf)

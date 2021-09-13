@@ -59,7 +59,7 @@ class Topic(models.Model):
 
 class Task(models.Model):
     headline = models.CharField(max_length=100, verbose_name="Überschrift")
-    topic = models.ManyToManyField(Topic, verbose_name="Lernbereiche")
+    topic = models.ManyToManyField(Topic, verbose_name="Lernbereiche", blank=True)
     description = models.CharField(max_length=500, verbose_name="Beschreibung")
     total_BE = models.CharField(
         max_length=50, blank=True, validators=[int_list_validator], help_text="Pro Teilaufgabe, getrennt durch Kommata", verbose_name="Bewertungseinheiten")

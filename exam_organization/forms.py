@@ -56,6 +56,9 @@ class CreateTaskForm(forms.ModelForm):
                 behaviours=True,  # To disable auto-append of quote when quotes are entered
                 )
         }
+        help_texts = {
+            'topic': 'STRG halten für die Auswahl mehrerer Bereiche'
+        }
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
@@ -71,8 +74,10 @@ class CreateTaskForm(forms.ModelForm):
         instance.created_by = self.user
         instance.edited_by = self.user
         
-        anzahl_tasks_mit_headline = Task.objects.filter(headline = instance.headline).count()
-        instance.slug = slugify(instance.headline + '_' + str(anzahl_tasks_mit_headline + 1))
+        number_tasks_with_headline = Task.objects.filter(headline__contains = instance.headline).count()
+        print(number_tasks_with_headline)
+        instance.slug = slugify(instance.headline + '_' + str(number_tasks_with_headline))
+        print(instance.slug)
 
         instance.save()
         text = instance.task_text
@@ -88,6 +93,7 @@ class CreateTaskForm(forms.ModelForm):
             counter += 1
 
         instance.task_text = text
+
         instance.save()
         self.save_m2m()
         
@@ -151,9 +157,9 @@ class UpdateTaskForm(forms.ModelForm):
 
         instance.task_text = text
         instance.edited_by = self.user
-        anzahl_tasks_mit_headline = Task.objects.filter(headline = instance.headline).count()
+        number_of_tasks_with_headline = Task.objects.filter(headline = instance.headline).count()
         
-        instance.slug = slugify(instance.headline + '_' + str(anzahl_tasks_mit_headline + 1))
+        instance.slug = slugify(instance.headline + '_' + str(number_of_tasks_with_headline + 1))
 
 
         if commit:

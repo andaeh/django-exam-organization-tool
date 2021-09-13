@@ -134,3 +134,9 @@ dmypy.json
 # Image files
 *.jpg
 *.png
+
+# VS Code
+.vscode/
+
+# Static files
+static/
